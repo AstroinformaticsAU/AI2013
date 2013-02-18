@@ -1,0 +1,11 @@
+<html>
+<header>
+  <title>Tutorial: Step 3</title>
+  <link rel="stylesheet" href="/css/step3.css" type="text/css" />
+</header>
+<body>
+  <p class="step3">
+    Hello static world!
+  </p>
+</body>
+</html>
