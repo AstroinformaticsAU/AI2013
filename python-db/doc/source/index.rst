@@ -40,9 +40,13 @@ same result:
 Exercise
 --------
 
-Modify the example to buffer databse writes 10 input lines at a time. This saves
-on memory for large input files and is better for error recovery.
+1. Add additional columns from the file with different data types than string
+2. Modify the example to buffer databse writes 10 input lines at a time. This saves on memory for large input files and is better for error recovery.
 
+References
+----------
+
+* `SQLAlchemy <http://www.sqlalchemy.org/>`_ for general DB access
 
 .. toctree::
    :maxdepth: 2

@@ -158,6 +158,19 @@ Exercise
 
     Modify the example to allow selection of columns to return. Hint see 'step3.py' and use :func:`bottle.request.getlist`. Multiple arguments can be passed as follows '?x=1&x=2'. 
 
+
+References
+==========
+
+* `History <http://www.computerhistory.org>`_
+* `<http://www.anu.edu.au/people/Roger.Clarke/II/OzIHist.html>_`
+* `HTML: <http://www.w3.org/MarkUp/>_`
+* `HTML tutorials: <http://www.w3schools.com/html/>_`
+* `CSS: <http://www.w3.org/Style/CSS/>_`
+* `CSS examples: <http://www.csszengarden.com/>_`
+* `bottle <http://bottlepy.org/>`_ Microframework
+* `python anywhere <http://www.pythonanywhere.com/>`_  for hosting python applications
+
 .. toctree::
    :maxdepth: 2
 
