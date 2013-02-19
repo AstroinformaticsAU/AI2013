@@ -27,10 +27,10 @@ with connection:
     cur.execute("CREATE TABLE hipass(Id INT, Name TEXT, RA TEXT, DEC TEXT)")
     cur.executemany("INSERT INTO hipass VALUES(?, ?, ?, ?)", catalogue)
 
-    for row in cur.execute("SELECT * FROM hipass WHERE Name LIKE 'J060%'"):
+    for row in cur.execute("SELECT * FROM hipass WHERE Name LIKE 'J060%' "):
         print row
-    
-    cur.execute("SELECT * FROM hipass WHERE Name LIKE 'J061%'"):
+    print "-" * 20
+    cur.execute("SELECT * FROM hipass WHERE Name LIKE 'J061%'")
     result = cur.fetchall()
     for r in result:
         print r

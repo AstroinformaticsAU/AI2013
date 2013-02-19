@@ -75,7 +75,9 @@ Presentation
 
 * HTML content mark-up
 * CSS for “presentation” 
+
   - Can be customised on the client side, e.g. accessibility, mobile devices.
+
 * Client-side modifications - javascript
 
 
@@ -156,7 +158,8 @@ to an `int`.
 
 Exercise
 
-    Modify the example to allow selection of columns to return. Hint see 'step3.py' and use :func:`bottle.request.getlist`. Multiple arguments can be passed as follows '?x=1&x=2'. 
+1. Modify the example to allow selection of columns to return. Hint see 'step3.py' and use :func:`bottle.request.getlist`. Multiple arguments can be passed as follows '?x=1&x=2'. 
+2. Filter your output table based on `query` parameters to only show rows with F_peak_min < column_value M F_peak_max.
 
 
 References
