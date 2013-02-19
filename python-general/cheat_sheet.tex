@@ -123,6 +123,9 @@
   # Open a text file for writing.
   f = open('output.txt', 'w')
 
+  # Close a file.
+  f.close()
+
   # Safely open a text file for reading.
   with open('input.txt') as f:
     # Do something here...
@@ -154,7 +157,7 @@
   value = magnitude(3, 4, 5)
 \end{lstlisting}
 
-\section{List Comprehensions}
+\section{List Comprehensions Basics}
 \begin{lstlisting}
   a_list = [1, 2, 3, 4]
 
@@ -187,27 +190,78 @@
   sin(0.4) # error!
 \end{lstlisting}
 
-\section{Class Basics}
+\section{Object Oriented Basics}
 \begin{lstlisting}
   # Define an empty class.
-  class MyClass:
+  class MyClass(object):
     pass
 
   # Define a constructor.
-  class MyClass:
+  class MyClass(object):
 
     def __init__(self):
       self.some_int = 10
       self.my_name = 'MyClass'
 
   # Define methods.
-  class MyClass:
+  class MyClass(object):
 
     def __init__(self):
       self.some_int = 10
 
-    def get_some_int_squared():
+    def get_some_int_squared(self):
       return self.some_int*self.some_int
+\end{lstlisting}
+
+\section{More Object Oriented Programming}
+\begin{lstlisting}
+  # Inheritance.
+  class MyClass(object):
+    def __init__(self):
+      pass
+
+  class MySubClass(MyClass):
+    def __init__(self):
+      super(MySubClass, self).__init__(self)
+
+  # Operator overloading.
+  class MyClass:
+
+    # Equal (==).
+    def __eq__(self, value):
+       pass
+
+    # Not equal (!=).
+    def __ne__(self, value):
+       pass
+
+    # Less than (<).
+    def __lt__(self, value):
+       pass
+
+    # Less than or equal (<=).
+    def __le__(self, value):
+       pass
+
+    # Greater than (>).
+    def __gt__(self, value):
+       pass
+
+    # Greater than or equal (>=).
+    def __ge__(self, value):
+       pass
+
+  # Basic introspection.
+  class MyClass(object):
+    def __init__(self):
+      self.some_int = 10
+
+  my_class = MyClass()
+  attrs = vars(my_class) # get the attributes dictionary
+
+  getattr(my_class, "some_int")
+  getattr(my_class, "not_there") # error!
+  setattr(my_class, "another_int")
 \end{lstlisting}
 
 \end{document}
