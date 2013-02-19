@@ -1,0 +1,213 @@
+\title{A Quick Python Cheat Sheet}
+%% \author{
+%%   Luke Hodkinson \\
+%%   Center for Astrophysics and Supercomputing \\
+%%   Swinburne University of Technology \\
+%%   Melbourne, Hawthorn 32000, \underline{Australia}
+%% }
+\date{\today}
+
+\documentclass[10pt]{article}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{listings}
+%% \usepackage[scaled]{beramono}
+%% \renewcommand*\familydefault{\ttdefault}
+%% \usepackage[Tl]{fontenc}
+
+\newcommand{\deriv}[2]{\ensuremath{\frac{\mathrm{d}#1}{\mathrm{d}#2}}}
+\newcommand{\sderiv}[2]{\ensuremath{\frac{\mathrm{d}^2#1}{\mathrm{d}#2^2}}}
+
+\lstset{
+  language=Python,
+  showstringspaces=false,
+  formfeed=\newpage,
+  tabsize=4,
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{BrickRed}\itshape,
+  keywordstyle=\color{blue},
+  stringstyle=\color{OliveGreen},
+  morekeywords={models, lambda, forms, dict, list, str, import, dir, help,
+   zip, with, open}
+}
+
+\begin{document}
+\maketitle
+
+\section{Getting Help}
+\begin{lstlisting}
+  # Get help for a module, function, class, etc.
+  help('math')
+  help('str')
+
+  # Get a brief listing of names in namespace.
+  import math
+  dir(math)
+  dir(str)
+\end{lstlisting}
+
+\section{Strings}
+\begin{lstlisting}
+  # Creation.
+  s = "Hello world!"
+  s = 'Hello world!'
+  s = 'Hello' + ' ' + 'world!'
+
+  # Access.
+  print s[0] # returns 'H'
+  print s[1] # returns 'e'
+
+  # Operations.
+  s.split() # returns ['Hello', 'world!']
+  s = ' '.join(['Hello\\n', 'world\\n']) # s becomes 'Hello\\nworld\\n'
+  s.splitlines() # returns ['Hello', 'world']
+  s.strip('.,') # removes periods and commas from string
+\end{lstlisting}
+
+\section{Lists}
+\begin{lstlisting}
+  # Creating.
+  l = []
+  l = [1, 'two', 3]
+  l = list([1, 'two', 3]) # copy a list
+
+  # Modifying lists.
+  l.append(4)
+  l.extend([5, 6, 7])
+  l.reverse()
+  l.sort()
+
+  # Querying lists.
+  4 in l
+  l.count(1) # how many 1's in the list?
+
+  # Iteration.
+  for item in l:
+    ...
+\end{lstlisting}
+
+\section{Dictionaries}
+\begin{lstlisting}
+  # Creating dictionaries.
+  d = {}
+  d = {1: 'one', 2: 'two'}
+  d = dict([(1, 'one'), (2, 'two'), (3, 'three')])
+  d = dict(zip([1, 2, 3], ['one', 'two', 'three']))
+
+  # Modifying dictionaries.
+  d[5] = 'five'
+  d.pop(1) # removes key/value, returns value
+
+  # Querying dictionaries.
+  1 in d
+  d.keys() # returns list of keys
+  d.values() # returns list of values
+  d.items() # returns list of key/value tuples.
+
+  # Iteration.
+  for key in d.iterkeys(): # iterate over keys
+    ...
+  for value in d.itervalues(): # iterate over values
+    ...
+  for key, value in d.iteritems(): # iterate over keys, values
+    ...
+\end{lstlisting}
+
+\section{Files}
+\begin{lstlisting}
+  # Open a text file for reading.
+  f = open('input.txt')
+
+  # Open a text file for writing.
+  f = open('output.txt', 'w')
+
+  # Safely open a text file for reading.
+  with open('input.txt') as f:
+    # Do something here...
+    # File is automatically closed when we
+    # exit from the 'with' block.
+
+  # Iterate over lines in a file.
+  with open('input.txt') as f:
+    for line in f:
+      # Do something here...
+\end{lstlisting}
+
+\section{Functions}
+\begin{lstlisting}
+  # Declare a function.
+  def func():
+    # Do something here...
+
+  # Accept arguments.
+  def magnitude(x, y, z):
+    mag = sqrt(x*x + y*y + z*z)
+
+  # Return values.
+  def magnitude(x, y, z):
+    mag = sqrt(x*x + y*y + z*z)
+    return mag
+
+  # Calling functions.
+  value = magnitude(3, 4, 5)
+\end{lstlisting}
+
+\section{List Comprehensions}
+\begin{lstlisting}
+  a_list = [1, 2, 3, 4]
+
+  # Square each element of a list.
+  a_list = [l*l for l in a_list]
+
+  # Filter a list.
+  a_list = [l for l in a_list if l < 3]
+
+  # Filter and square each element in a list.
+  a_list = [l*l for l in a_list if l < 3]
+\end{lstlisting}
+
+\section{Modules}
+\begin{lstlisting}
+  # Import a module and access contents.
+  import math
+  dir(math)
+  math.cos(0.3)
+  math.sin(0.3)
+
+  # Import all module contents directly.
+  from math import *
+  cos(0.3)
+  sin(0.3)
+
+  # Import one symbol from module.
+  from math import cos
+  cos(0.3)
+  sin(0.4) # error!
+\end{lstlisting}
+
+\section{Class Basics}
+\begin{lstlisting}
+  # Define an empty class.
+  class MyClass:
+    pass
+
+  # Define a constructor.
+  class MyClass:
+
+    def __init__(self):
+      self.some_int = 10
+      self.my_name = 'MyClass'
+
+  # Define methods.
+  class MyClass:
+
+    def __init__(self):
+      self.some_int = 10
+
+    def get_some_int_squared():
+      return self.some_int*self.some_int
+\end{lstlisting}
+
+\end{document}
